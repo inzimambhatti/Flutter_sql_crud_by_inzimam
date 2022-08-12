@@ -11,6 +11,11 @@ dependencies:
   sqflite: ^2.0.3+1
   path_provider: ^2.0.2
   intl: ^0.17.0
+  open_mail_app: ^0.4.5
+  photo_view: ^0.14.0
+  url_launcher: ^6.1.5
+  image_picker: any
+
   flutter: 
     sdk: flutter
 

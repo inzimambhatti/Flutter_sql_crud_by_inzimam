@@ -1,59 +1,29 @@
 class Product {
-  int? _id;
-  String? _name;
-  String? _description;
-  String? _imageUrl;
-  double? _price;
+  int ?id;
+  String? name;
+  String ?description;
+  double ?price;
+  String? image;
 
-  Product(this._name, this._description, this._price, this._imageUrl);
-  Product.withId(
-      this._id, this._name, this._description, this._imageUrl, this._price);
-
-  int? get id => _id;
-  String get name => _name!;
-  String get description => _description!;
-  String? get imageUrl => _imageUrl;
-  double get price => _price!;
-
-  set name(String value) {
-    if (value.length >= 2) {
-      _name = value;
-    }
-  }
-
-  set description(String value) {
-    if (value.length >= 8) {
-      _description = value;
-    }
-  }
-
-  set price(double value) {
-    if (value > 0) {
-      _price = value;
-    }
-  }
+  Product({this.id, this.name, this.description, this.price, this.image});
 
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
-    map["Name"] = _name;
-    map["Description"] = _description;
-    map["ImageUrl"] = _imageUrl;
-    map["Price"] = _price;
-    if (_id != null) {
-      map["Id"] = _id;
+    if (id != null) {
+      map['id'] = id;
     }
-
+    map['name'] = name;
+    map['description'] = description;
+    map['price'] = price;
+    map['image'] = image;
     return map;
   }
 
-  Product.fromObject(dynamic o) {
-    this._id = o["Id"];
-    this._name = o["Name"];
-    this._description = o["Description"];
-    this._imageUrl = o["ImageUrl"];
-    this._price = double.tryParse(o["Price"].toString());
+  Product.fromMap(Map<String, dynamic> map) {
+    this.id = map['id'];
+    this.name = map['name'];
+    this.description = map['description'];
+    this.image = map['image'];
+    this.price = double.parse(map['price']);
   }
-  
-
-
 }
